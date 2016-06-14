@@ -14,7 +14,8 @@ def printGText(graph):
         print(" ".join((str(x) for x in row)))
         
 def printGGui(graph):
-    plt.imshow(graph, cmp=mp.image.cm.gray)
+    plt.imshow(graph, cmap="Greys_r")
+    plt.show()
     
 def saveG(path, graph):
     plt.imsave(path, graph, cmap="Greys_r")
@@ -28,3 +29,11 @@ def enLarge(graph, scale=10):
         for x in xrange(w):
             g[y*scale:(y+1)*scale,x*scale:(x+1)*scale] = graph[y,x]
     return g
+
+def pointsToEdges_gen(points):
+    len_points = len(points)
+    for i in xrange(len_points):
+        yield (points[i], points[(i+1) % len_points])
+
+def pointsToEdges(points):
+    return list(pointsToEdges_gen(points))

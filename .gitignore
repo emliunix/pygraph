@@ -90,3 +90,7 @@ ENV/
 
 # ignore vscode files
 /.vscode/
+
+# ignore test images
+
+/*.png

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from circle import mkCircle
+from pygraph.circle import mkCircle
 import matplotlib.pyplot as plt
-from linestyle import *
+from pygraph.linestyle import *
 
 
 def job(fname, lstyle):
@@ -15,9 +15,9 @@ def job(fname, lstyle):
         r = np.zeros(tuple(scale * x for x in g.shape))
         for y in xrange(g.shape[0]):
             for x in xrange(g.shape[1]):
-                r[y*scale:(y+1)*scale,x*scale:(x+1)*scale] = g[y, x]
+                r[y*scale:(y+1)*scale, x*scale:(x+1)*scale] = g[y, x]
         return r
-    
+
     plt.imsave(fname, g, cmap="Greys_r")
     fname = "%s-large.%s" % (fname[0:fname.find(".")], fname[fname.find(".")+1:])
     plt.imsave(fname, enlarge(g, 5), cmap="Greys_r")

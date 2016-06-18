@@ -13,12 +13,12 @@ def printGText(graph):
     for row in graph:
         print(" ".join((str(x) for x in row)))
         
-def printGGui(graph):
-    plt.imshow(graph, cmap="Greys_r")
+def printGGui(graph, cmap="Greys_r"):
+    plt.imshow(graph, cmap=cmap)
     plt.show()
     
-def saveG(path, graph):
-    plt.imsave(path, graph, cmap="Greys_r")
+def saveG(path, graph, cmap="Greys_r"):
+    plt.imsave(path, graph, cmap=cmap)
     
 def enLarge(graph, scale=10):
     shape = tuple(scale * s for s in graph.shape)

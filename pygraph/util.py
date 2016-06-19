@@ -37,3 +37,6 @@ def pointsToEdges_gen(points):
 
 def pointsToEdges(points):
     return list(pointsToEdges_gen(points))
+
+def transformPoints(points, t):
+    return [t(p) for p in points]

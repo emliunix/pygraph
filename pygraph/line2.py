@@ -3,19 +3,26 @@
 from __future__ import print_function
 
 import util
+from linestyle import SolidLineStyle
 
 x = lambda p: p[0]
 y = lambda p: p[1]
 
-def mkLine(g, start, stop):
+def mkLine(g, start, stop, lstyle=None):
+    if not lstyle:
+        lstyle = SolidLineStyle()
     # ensure start is on the left of stop
     if(abs(y(stop) - y(start)) > abs(x(stop) - x(start))):
         def put(x, y):
-            g[x, y] = 1
+            if lstyle.p():
+                g[x, y] = 1
+            lstyle.inc()
         genericLine((y(start), x(start)), (y(stop), x(stop)), put)
     else:
         def put(x, y):
-            g[y, x] = 1
+            if lstyle.p():
+                g[y, x] = 1
+            lstyle.inc()
         genericLine(start, stop, put)
 
 

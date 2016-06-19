@@ -11,4 +11,4 @@ def job(lstyle):
     mkCircle(g, (400, 300), 250, lstyle)
     printGGui(g, cmap="Greys")
 
-job(DashedLineStyle())
+job(SolidLineStyle())

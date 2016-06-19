@@ -17,9 +17,13 @@ tri = [
 
 tri0 = transformPoints(tri, Translate(60 - 30, 60 - 30))
 tri1 = transformPoints(tri, Symmetric(vertical=True) * Translate(120 - 30, 60 - 30))
+tri10 = transformPoints(tri, Translate(120 - 30, 60 - 30))
 tri2 = transformPoints(tri, Symmetric(horizontal=True) * Translate(180 - 30, 60 - 30))
+tri20 = transformPoints(tri, Translate(180 - 30, 60 - 30))
 tri3 = transformPoints(tri, Symmetric(fortyfive=True) * Translate(60 - 30, 120 - 30))
+tri30 = transformPoints(tri, Translate(60 - 30, 120 - 30))
 tri4 = transformPoints(tri, Symmetric(vertical=True, horizontal=True) * Translate(120 - 30, 120 - 30))
+tri40 = transformPoints(tri, Translate(120 - 30, 120 - 30))
 
 print tri
 print tri0
@@ -30,9 +34,13 @@ print tri4
 
 fillPolygonEdge2(g, tri0)
 fillPolygonEdge2(g, tri1)
+fillPolygonEdge2(g, tri10)
 fillPolygonEdge2(g, tri2)
+fillPolygonEdge2(g, tri20)
 fillPolygonEdge2(g, tri3)
+fillPolygonEdge2(g, tri30)
 fillPolygonEdge2(g, tri4)
+fillPolygonEdge2(g, tri40)
 
 dashed = DashedLineStyle()
 solid = SolidLineStyle()
@@ -45,4 +53,4 @@ for y in [0, 30, 90, 119]:
     mkLine(g, (0, y), (180, y), lstyle=dashed)
 mkLine(g, (0, 60), (180, 60), lstyle=solid)
 
-printGGui(enLarge(g, 10))
+printGGui(enLarge(g, 10), cmap="Greys")
